@@ -28,24 +28,23 @@ jobs:
           cd mr-chicken-store-admin
           npm run build
 
-      - name: 🔄 Install & Setup Capacitor (Android)
+      - name: 🔄 Install & Setup Capacitor v5 (Stable)
         run: |
           cd mr-chicken-store-admin
-          npm install @capacitor/core @capacitor/android
-          npm install -D @capacitor/cli
+          npm install @capacitor/core@5 @capacitor/android@5
+          npm install -D @capacitor/cli@5
           npx cap init "Store Admin" "com.mrchicken.storeadmin" --web-dir dist
           npx cap add android
 
-      - name: ☕ Setup Java (JDK 21)
+      - name: ☕ Setup Java (JDK 17)
         uses: actions/setup-java@v4
         with:
           distribution: 'zulu'
-          java-version: '21'
+          java-version: '17'
 
       - name: 🔨 Build Debug APK
         run: |
           cd mr-chicken-store-admin/android
-          sed -i 's/gradle-8.2.1-all.zip/gradle-8.7-all.zip/g' gradle/wrapper/gradle-wrapper.properties
           chmod +x ./gradlew
           ./gradlew assembleDebug
 
