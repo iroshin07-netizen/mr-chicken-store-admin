@@ -29,7 +29,7 @@ function Shell() {
         <div 
           className="sidebar-overlay md:hidden" 
           onClick={() => setOpen(false)}
-          style={{ position: "fixed", inset: 0, zIndex: 90, background: "rgba(0,0,0,0.5)" }} 
+          style={{ position: "fixed", inset: 0, zIndex: 40, background: "rgba(0,0,0,0.5)" }} 
         />
       )}
 
