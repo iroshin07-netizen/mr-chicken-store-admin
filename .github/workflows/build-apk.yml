@@ -7,7 +7,7 @@ on:
 
 jobs:
   build-android:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04 # 🔴 Yahan change kiya hai (latest se 22.04 par)
 
     steps:
       - name: 📥 Checkout Code
