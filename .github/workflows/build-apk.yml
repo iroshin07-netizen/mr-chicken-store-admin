@@ -7,7 +7,7 @@ on:
 
 jobs:
   build-android:
-    runs-on: ubuntu-22.04 # 🔴 Yahan change kiya hai (latest se 22.04 par)
+    runs-on: ubuntu-22.04
 
     steps:
       - name: 📥 Checkout Code
@@ -45,6 +45,8 @@ jobs:
       - name: 🔨 Build Debug APK
         run: |
           cd mr-chicken-store-admin/android
+          # Ye rahi wo jadoo ki line jo Gradle engine ko 8.7 par update karegi
+          sed -i 's/gradle-8.2.1-all.zip/gradle-8.7-all.zip/g' gradle/wrapper/gradle-wrapper.properties
           chmod +x ./gradlew
           ./gradlew assembleDebug
 
@@ -53,3 +55,4 @@ jobs:
         with:
           name: Store-Admin-Debug-APK
           path: mr-chicken-store-admin/android/app/build/outputs/apk/debug/app-debug.apk
+
